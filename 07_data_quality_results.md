@@ -32,3 +32,11 @@ Duplicate respondents were checked using their unique respondent IDs. Missing da
 All completed validation checks passed for the synthetic dataset. No missing values were found in the checked fields, no duplicate respondent IDs were identified, and all 550 stored proficiency ratings were within the required range.
 
 These checks establish basic data consistency but do not validate the accuracy of real-world skill assessments or occupational requirements.
+
+### Data Transformation Validation
+
+An additional SQL query compared the normalized EmployeeSkill proficiency ratings against the original survey_raw data.
+
+The query returned **0 mismatched ratings**, confirming that all matched skill ratings were transferred correctly.
+
+This demonstrates that our synthetic survey data was successfully transformed into the relational database without changing the recorded proficiency values.
