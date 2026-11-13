@@ -9,6 +9,7 @@ The PostgreSQL database contains 50 synthetic survey respondents, each with 11 s
 The dataset was generated for database development and testing. It does not represent actual survey participants.
 
 ### Validation Results
+### Validation Results 
 
 | Validation Check | Result |
 |---|---|
