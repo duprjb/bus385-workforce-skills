@@ -8,7 +8,6 @@ The PostgreSQL database contains 50 synthetic survey respondents, each with 11 s
 
 The dataset was generated for database development and testing. It does not represent actual survey participants.
 
-### Validation Results
 ### Validation Results 
 
 | Validation Check | Result |
@@ -41,6 +40,7 @@ An additional SQL query compared the normalized EmployeeSkill proficiency rating
 The query returned **0 mismatched ratings**, confirming that all matched skill ratings were transferred correctly.
 
 This demonstrates that our synthetic survey data was successfully transformed into the relational database without changing the recorded proficiency values.
+
 ### Database Relationship and Career Requirement Validation
 
 SQL queries were performed to verify the relationships between employees, careers, skills, and career skill requirements.
