@@ -41,3 +41,22 @@ An additional SQL query compared the normalized EmployeeSkill proficiency rating
 The query returned **0 mismatched ratings**, confirming that all matched skill ratings were transferred correctly.
 
 This demonstrates that our synthetic survey data was successfully transformed into the relational database without changing the recorded proficiency values.
+### Database Relationship and Career Requirement Validation
+
+SQL queries were performed to verify the relationships between employees, careers, skills, and career skill requirements.
+
+| Validation Check | Result |
+|---|---|
+| Invalid employee career references | 0 |
+| Invalid employee or skill references | 0 |
+| Invalid career skill references | 0 |
+| Total career skill requirements | 24 |
+| Invalid required proficiency levels | 0 |
+| Business Analyst required skills | 7 |
+| Data Analyst required skills | 6 |
+| IT Analyst required skills | 6 |
+| Project Manager required skills | 5 |
+
+All relationship and proficiency-range validation checks passed for the synthetic database.
+
+These checks confirm database consistency but do not establish whether the illustrative career requirements accurately reflect O*NET occupational data.    
