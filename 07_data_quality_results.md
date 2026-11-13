@@ -3,8 +3,8 @@
 ## BUS 385 – Workforce Skills Database
 
 ### Dataset Description
-
-The PostgreSQL database contains 50 synthetic survey respondents, each with 11 skill proficiency ratings, producing 550 skill-rating records.
+This project uses a synthetic survey dataset with 50 respondents and 550 skill-proficiency ratings. O*NET occupational information serves as a reference for identifying career-related skills. The current career proficiency requirements are illustrative and have not yet been fully validated against O*NET.
+The PostgreSQL database contains 50 synthetic survey respondents, each with 11 skill proficiency ratings, for a total of 550 skill-rating records.
 
 The dataset was generated for database development and testing. It does not represent actual survey participants.
 
