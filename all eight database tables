@@ -1,0 +1,149 @@
+Microsoft Windows [Version 10.0.26300.9911]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\chans9>cd C:\Users\chans9\pgsql\bin
+
+C:\Users\chans9\pgsql\bin>createdb -U postgres workforce_skills
+createdb: error: connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+        Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+        Is the server running on that host and accepting TCP/IP connections?
+
+C:\Users\chans9\pgsql\bin>pg_ctl -D C:\Users\chans9\pgdata start
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start....2026-11-18 15:56:31.387 EST [12656] LOG:  starting PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit
+2026-11-18 15:56:31.417 EST [12656] LOG:  listening on IPv6 address "::1", port 5432
+2026-11-18 15:56:31.418 EST [12656] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-11-18 15:56:31.942 EST [14208] LOG:  database system was interrupted; last known up at 2026-11-18 15:23:49 EST
+..2026-11-18 15:56:33.654 EST [14208] LOG:  database system was not properly shut down; automatic recovery in progress
+2026-11-18 15:56:33.684 EST [14208] LOG:  redo starts at 0/1CFE320
+2026-11-18 15:56:33.684 EST [14208] LOG:  invalid record length at 0/1CFE358: expected at least 24, got 0
+2026-11-18 15:56:33.685 EST [14208] LOG:  redo done at 0/1CFE320 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2026-11-18 15:56:33.716 EST [15888] LOG:  checkpoint starting: end-of-recovery immediate wait
+2026-11-18 15:56:33.779 EST [15888] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.015 s, sync=0.011 s, total=0.072 s; sync files=2, longest=0.006 s, average=0.006 s; distance=0 kB, estimate=0 kB; lsn=0/1CFE358, redo lsn=0/1CFE358
+2026-11-18 15:56:33.810 EST [12656] LOG:  database system is ready to accept connections
+ done
+server started
+
+C:\Users\chans9\pgsql\bin>createdb -U postgres workforce_skills
+
+C:\Users\chans9\pgsql\bin>2026-11-18 16:01:33.788 EST [15888] LOG:  checkpoint starting: time
+2026-11-18 16:03:21.481 EST [15888] LOG:  checkpoint complete: wrote 985 buffers (6.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=106.851 s, sync=0.796 s, total=107.693 s; sync files=302, longest=0.008 s, average=0.003 s; distance=4666 kB, estimate=4666 kB; lsn=0/218CD00, redo lsn=0/218CC70
+dir C:\Users\chans9\Downloads\workforce_skills_backup.sql
+ Volume in drive C is Windows
+ Volume Serial Number is 40B9-1383
+
+ Directory of C:\Users\chans9\Downloads
+
+11/18/2026  03:11 PM            25,387 workforce_skills_backup.sql
+               1 File(s)         25,387 bytes
+               0 Dir(s)  104,664,977,408 bytes free
+
+C:\Users\chans9\pgsql\bin>psql -U postgres -d workforce_skills -f “C:\Users\chans9\Downloads\workforce_skills_backup.sql”
+psql: error: "C:/Users/chans9/Downloads/workforce_skills_backup.sql": No such file or directory
+
+C:\Users\chans9\pgsql\bin>copy C:\Users\chans9\Downloads\workforce_skills_backup.sql .
+        1 file(s) copied.
+
+C:\Users\chans9\pgsql\bin>psql -U postgres -d workforce_skills -f workforce_skills_backup.sql
+SET
+SET
+SET
+SET
+SET
+SET
+ set_config
+------------
+
+(1 row)
+
+
+SET
+SET
+SET
+SET
+SET
+SET
+CREATE TABLE
+2026-11-18 16:14:07.516 EST [16088] ERROR:  role "justinduprez" does not exist
+2026-11-18 16:14:07.516 EST [16088] STATEMENT:  ALTER TABLE public.department OWNER TO justinduprez;
+psql:workforce_skills_backup.sql:36: ERROR:  role "justinduprez" does not exist
+CREATE TABLE
+2026-11-18 16:14:07.548 EST [16088] ERROR:  role "justinduprez" does not exist
+2026-11-18 16:14:07.548 EST [16088] STATEMENT:  ALTER TABLE public.employee OWNER TO justinduprez;
+psql:workforce_skills_backup.sql:50: ERROR:  role "justinduprez" does not exist
+CREATE TABLE
+2026-11-18 16:14:07.588 EST [16088] ERROR:  role "justinduprez" does not exist
+2026-11-18 16:14:07.588 EST [16088] STATEMENT:  ALTER TABLE public.employeeskill OWNER TO justinduprez;
+psql:workforce_skills_backup.sql:65: ERROR:  role "justinduprez" does not exist
+CREATE TABLE
+2026-11-18 16:14:07.618 EST [16088] ERROR:  role "justinduprez" does not exist
+2026-11-18 16:14:07.618 EST [16088] STATEMENT:  ALTER TABLE public.jobrole OWNER TO justinduprez;
+psql:workforce_skills_backup.sql:78: ERROR:  role "justinduprez" does not exist
+CREATE TABLE
+2026-11-18 16:14:07.648 EST [16088] ERROR:  role "justinduprez" does not exist
+2026-11-18 16:14:07.648 EST [16088] STATEMENT:  ALTER TABLE public.roleskillrequirement OWNER TO justinduprez;
+psql:workforce_skills_backup.sql:92: ERROR:  role "justinduprez" does not exist
+CREATE TABLE
+2026-11-18 16:14:07.678 EST [16088] ERROR:  role "justinduprez" does not exist
+2026-11-18 16:14:07.678 EST [16088] STATEMENT:  ALTER TABLE public.skill OWNER TO justinduprez;
+psql:workforce_skills_backup.sql:105: ERROR:  role "justinduprez" does not exist
+CREATE TABLE
+2026-11-18 16:14:07.712 EST [16088] ERROR:  role "justinduprez" does not exist
+2026-11-18 16:14:07.712 EST [16088] STATEMENT:  ALTER TABLE public.survey_raw OWNER TO justinduprez;
+psql:workforce_skills_backup.sql:132: ERROR:  role "justinduprez" does not exist
+CREATE TABLE
+2026-11-18 16:14:07.745 EST [16088] ERROR:  role "justinduprez" does not exist
+2026-11-18 16:14:07.745 EST [16088] STATEMENT:  ALTER TABLE public.trainingprogram OWNER TO justinduprez;
+psql:workforce_skills_backup.sql:147: ERROR:  role "justinduprez" does not exist
+COPY 3
+COPY 50
+COPY 550
+COPY 4
+COPY 24
+COPY 11
+COPY 50
+COPY 7
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+
+C:\Users\chans9\pgsql\bin>psql -U postgres -d workforce_skills -c “\dt”
+2026-11-18 16:15:14.535 EST [25256] ERROR:  syntax error at or near "“" at character 1
+2026-11-18 16:15:14.535 EST [25256] STATEMENT:  “\dt”
+ERROR:  syntax error at or near """
+LINE 1: "\dt"
+        ^
+
+C:\Users\chans9\pgsql\bin>psql -U postgres -d workforce_skills -c \dt
+                  List of tables
+ Schema |         Name         | Type  |  Owner
+--------+----------------------+-------+----------
+ public | department           | table | postgres
+ public | employee             | table | postgres
+ public | employeeskill        | table | postgres
+ public | jobrole              | table | postgres
+ public | roleskillrequirement | table | postgres
+ public | skill                | table | postgres
+ public | survey_raw           | table | postgres
+ public | trainingprogram      | table | postgres
+(8 rows)
+
+
+
+C:\Users\chans9\pgsql\bin>2026-11-18 16:16:33.090 EST [15888] LOG:  checkpoint starting: time
+2026-11-18 16:16:42.039 EST [15888] LOG:  checkpoint complete: wrote 81 buffers (0.5%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=8.748 s, sync=0.165 s, total=8.950 s; sync files=62, longest=0.006 s, average=0.003 s; distance=485 kB, estimate=4248 kB; lsn=0/22062B8, redo lsn=0/2206228
